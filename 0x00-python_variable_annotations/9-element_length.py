@@ -7,6 +7,6 @@ i from the input list and its lenghth an int
 from typing import Iterator, Sequence, List, Tuple
 
 
-def to_kv(lst: Sequence[str]) -> Iterator[Tuple[str, int]]:
+def to_kv(lst: Iterator[Sequence]) -> List[Tuple[Sequence, int]]:
     """Return a list of tuples with the string and its length"""
     return [(i, len(i)) for i in lst]
