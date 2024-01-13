@@ -4,8 +4,9 @@
 typed annotated funtion that takes a float n as arg
 return the floor of the float
 """
+import math
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """Return the floor of a number"""
-    return n // 1 
+    return math.floor(n)
