@@ -4,5 +4,9 @@ fuction that takes a list lst
 and retrun a list of tuplescontaining two elemeents
 i from the input list and its lenghth an int
 """
-def element_length(lst: list) -> list[tuple]:
+from typing import Iterator, Sequence, List, Tuple
+
+
+def to_kv(lst: Sequence[str]) -> Iterator[Tuple[str, int]]:
+    """Return a list of tuples with the string and its length"""
     return [(i, len(i)) for i in lst]
