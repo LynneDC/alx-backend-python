@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-typed annotated funtion that takes 
+typed annotated funtion that takes
 a list of intergers and floats as an arg
 and return their sum as a float
 """
