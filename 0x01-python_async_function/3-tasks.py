@@ -6,13 +6,13 @@ return a asyncio.task
 from asyncio import Task, create_task
 
 
-wait_n = __import__("0-basic_async_syntax").wait_n
+wait_random = __import__("0-basic_async_syntax").wait_random
 
 
-def measure_time(n: int, max_delay: int) -> Task:
+def task_wait_random(max_delay: int) -> Task:
     """
     Returns:
     asyncio task
     """
-    task = create_task(wait_n(max_delay))
+    task = create_task(wait_random(max_delay))
     return task
