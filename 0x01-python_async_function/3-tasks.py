@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-write a function that takes an int max_delay and 
+write a function that takes an int max_delay and
 return a asyncio.task
 """
 from asyncio import Task, create_task
