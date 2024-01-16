@@ -6,14 +6,13 @@ return a asyncio.task
 from asyncio import Task, create_task
 
 
-wait_n = __import__("1-concurrent_coroutine").wait_n
+wait_n = __import__("0-basic_async_syntax").wait_n
 
 
-def measure_time(n: int, max_delay: int) -> float:
+def measure_time(n: int, max_delay: int) -> Task:
     """
     Returns:
     asyncio task
     """
     task = create_task(wait_n(max_delay))
-    return task 
-
+    return task
