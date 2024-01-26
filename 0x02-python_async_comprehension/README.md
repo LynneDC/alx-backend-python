@@ -93,5 +93,70 @@
 <p><code>measure_runtime</code> should measure the total runtime and return it.</p>
 
 <p>Notice that the total runtime is roughly 10 seconds, explain it to yourself.</p>
+
+<h2>NOTES</h2>
+<h3>ASYNCHRONOUS COMPREHENSIONS PEP 530</h3>
+<li>Async comprehensions are a new feature of Python 3.6.</li>
+
+ ## ABSTRACT
+  <li>The async comprehensions feature allows us to write asynchronous code that looks like synchronous code. </p>
+  <li>introduced support for native coroutines and asynchronous generators using <code>async</code> / <code> await</code> syntax.
+  <li>It allows to add asynchronous versions of list, set, dict comprehensions and generator expressions.
+  </li>
+<li>
+
+## RETIONALE AND GOALS
+allow production of lists, dict and sets with a simple and conscise syantax
+<li>produsing a similar syntactic constructions for the asynchronous code</li>
+EXAMPLE
+<pre> 
+result =[]
+async or i in aiter():
+  if i % 2:
+    result.append(i)
+</pre>
+with the proposed <code>asynchronous comprehension syntax</code> it can be written as <br> <pre> result = [i async for i in aite() if i % 2] </pre>
+It can be written using <code> await</code> expression as follows: <pre> result = [await func() for fun in funcs] </pre>
+
+## SPECIFICATION
+## Asynchronous Comprehension
+Allow using of <code> async for </code> inside <li>lists</li> <li>sets</li> <li>dict</li> comprehensions
+EXAMPLE OF CREATION OF <code> Asynchronous GENERATOR EXPRESSIONS </code>
+<li> set comprehension: <code> {i async for i agen()};</code>
+<li> list comprehension: <code> [i async for i in agen()]; </code>
+<li> dict comprehension: <code>{i: i ** 2 async for i in agen()}; </code>
+<li> generator expression: <code>(i ** 2 async for i in agen())</code> <br>
+<br>
+<code> async for </code> can be used along with <code> if </code> and <code> for<code> clauses in <code> asynchronous comprehensions </code> and <code>generator expressions :</code>
+<pre>
+dataset = {data for line in aiter()
+                ansyc for data in line
+                if check(data)}
+</pre>
+asynchronous comprehensions are allowed only inside an <code>async def </code> function
+
+## <code>await</code> in Compehensions
+this is allows using <code> await </code> in asynchronous and synchronous compehension. <br>
+EXAMPLE
+<pre>
+<u># only valid in <code> async def </code> fucntion body </u>
+<br>
+
+result = [await fun() for fun in funcs]
+result = {await fun() for fun in funcs}
+result = {fun: await fun() for fun in funcs}
+
+result = [await fun() for fun in funcs if await smth]
+result = {await fun() for fun in funcs if await smth}
+result = {fun: await fun() for fun in funcs if await smth}
+
+result = [await fun() async for fun in funcs]
+result = {await fun() async for fun in funcs}
+result = {fun: await fun() async for fun in funcs}
+
+result = [await fun() async for fun in funcs if await smth]
+result = {await fun() async for fun in funcs if await smth}
+result = {fun: await fun() async for fun in funcs if await smth}
+</pre>
 </body>
 </html>
