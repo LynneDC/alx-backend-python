@@ -158,5 +158,15 @@ result = [await fun() async for fun in funcs if await smth]
 result = {await fun() async for fun in funcs if await smth}
 result = {fun: await fun() async for fun in funcs if await smth}
 </pre>
+## GRAMMAR UPDATES
+<code> async for </code> can be used along with <code> if </code> and <code> for<code> clauses in <code> asynchronous comprehensions </code> and <code>generator expressions :</code><br>
+
+It requiresone change on the grammarlevel: eg is addingthe optional<code>async</code> keyword to the <code>comp_for</code> clause.
+EXAMPLE
+<pre> comp_for: [ASYNC] 'for' exprlist 'in' or_test [comp_iter]
+</pre>
+the comprehension AST node will have the new <code>is_async</code> argument
+## BACKWARDS COMPATIBILITY
+the proposal is fully backwards compatible
 </body>
 </html>
